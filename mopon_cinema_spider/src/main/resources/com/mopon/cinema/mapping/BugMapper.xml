@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mopon.cinema.rules.dao.BugMapper" >
+  <resultMap id="BaseResultMap" type="com.mopon.cinema.domain.Bug" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="CREATEDATETIME" property="createdatetime" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mopon.cinema.domain.Bug" extends="BaseResultMap" >
+    <result column="NOTE" property="note" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <insert id="getInsert" parameterType="com.mopon.cinema.domain.Bug" ><!-- resultType="" -->
+        insert into tbug(ID,CREATEDATETIME,NAME,NOTE) values(#{id},#{createdatetime},#{name},#{note})
+  </insert>
+</mapper>
